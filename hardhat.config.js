@@ -2,6 +2,7 @@ require("@nomiclabs/hardhat-waffle");
 
 module.exports = {
   solidity: "0.7.6",
+  compilers: [DEFAULT_COMPILER_SETTINGS],
   networks:{
     hardhat: {
       forking: {
