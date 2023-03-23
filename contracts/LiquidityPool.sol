@@ -15,7 +15,7 @@ contract LiquidityPool is IERC721Receiver {
 
     uint24 public constant poolFee = 3000;
 
-    INonfungiblePositionManager public immutable nonfungiblePositionManager;
+    INonfungiblePositionManager public constant nonfungiblePositionManager = INonfungiblePositionManager(0xC36442b4a4522E871399CD717aBDD847Ab11FE88	);
 
     /// @notice Represents the deposit of an NFT
     struct Deposit {
@@ -28,11 +28,7 @@ contract LiquidityPool is IERC721Receiver {
     /// @dev deposits[tokenId] => Deposit
     mapping(uint256 => Deposit) public deposits;
 
-    constructor(
-        INonfungiblePositionManager _nonfungiblePositionManager
-    ) {
-        nonfungiblePositionManager = _nonfungiblePositionManager;
-    }
+   
 
     // Implementing `onERC721Received` so this contract can receive custody of erc721 tokens
     function onERC721Received(
