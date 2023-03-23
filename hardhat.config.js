@@ -15,8 +15,9 @@ const DEFAULT_COMPILER_SETTINGS = {
 }
 
 module.exports = {
-  solidity: "0.7.6",
-  compilers: [DEFAULT_COMPILER_SETTINGS],
+  solidity: {
+    compilers: [DEFAULT_COMPILER_SETTINGS],
+  },
   networks:{
     hardhat: {
       forking: {
