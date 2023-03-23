@@ -48,13 +48,16 @@ describe("LiquidityPool", () => {
       const daiAmount = 100n * 10n ** 18n
       const usdcAmount = 100n * 10n ** 6n
 
-      //should check if the amount we want to swap is in the contract address we want to get it from
+      //should check if the amount we want to swap is in the account we want to get it from
       expect(await dai.balanceOf(daiWhale.address)).to.gte.(daiAmount)
       expect(await usdc.balanceOf(usdcWhale.address)).to.gte(usdcAmount)
 
+      //transfering money to hardhat accounts
       await dai.connect(daiWhale).transfer(accounts[0].address, daiAmount)
       await usdc.connect(usdcWhale).transfer(accoutns[0].address, usdcAmount)
   })
+
+    
 
 
 })
