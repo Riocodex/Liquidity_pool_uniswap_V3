@@ -57,7 +57,9 @@ describe("LiquidityPool", () => {
       await usdc.connect(usdcWhale).transfer(accoutns[0].address, usdcAmount)
   })
 
-    
+    it("mintNewPosition", async() =>{
+        
+    })
 
 
 })
