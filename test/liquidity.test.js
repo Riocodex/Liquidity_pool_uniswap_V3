@@ -22,6 +22,20 @@ describe("LiquidityPool", () => {
 
     dai = await ethers.getContractAt("IERC20", DAI)
     usdc = await ethers.getContractAt("IERC20", USDC)
+
+    await network.provider.request({
+        method: "hardhat_impersonateAccount",
+        params: [DAI_WHALE],
+      })
+  
+    const daiWhale = await ethers.getSigner(DAI_WHALE)
+
+    await network.provider.request({
+        method: "hardhat_impersonateAccount",
+        params: [USDC_WHALE],
+      })
+  
+      const usdcWhale = await ethers.getSigner(USDC_WHALE)
   })
 
   it("swapExactInputSingle", async () => {
