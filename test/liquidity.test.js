@@ -55,6 +55,9 @@ describe("LiquidityPool", () => {
       //transfering money from dai and usdc accounts to hardhat accounts
       await dai.connect(daiWhale).transfer(accounts[0].address, daiAmount)
       await usdc.connect(usdcWhale).transfer(accounts[0].address, usdcAmount)
+
+      console.log("Dai balance before adding liquidity",await dai.balanceOf(accounts[0].address))
+      console.log("USDC balance before adding liquidity",await usdc.balanceOf(accounts[0].address))
   })
 
     it("mintNewPosition", async() =>{
