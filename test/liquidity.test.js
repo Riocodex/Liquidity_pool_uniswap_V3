@@ -52,14 +52,20 @@ describe("LiquidityPool", () => {
       expect(await dai.balanceOf(daiWhale.address)).to.gte.(daiAmount)
       expect(await usdc.balanceOf(usdcWhale.address)).to.gte(usdcAmount)
 
-      //transfering money to hardhat accounts
+      //transfering money from dai and usdc accounts to hardhat accounts
       await dai.connect(daiWhale).transfer(accounts[0].address, daiAmount)
       await usdc.connect(usdcWhale).transfer(accoutns[0].address, usdcAmount)
   })
 
     it("mintNewPosition", async() =>{
-        
-    })
+        //amounts to swap
+      const daiAmount = 100n * 10n ** 18n
+      const usdcAmount = 100n * 10n ** 6n
+
+      //transfering money from hardhat accounts to smartcontract address(liquiditypool)
+      await dai.connect(accounts[0]).transfer(liquidityPool.address, daiAmount)
+      await usdc.connect(accounts[0]).transfer(liquidityPool.address, usdcAmount)
+    })  
 
 
 })
