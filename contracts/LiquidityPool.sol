@@ -8,7 +8,7 @@ import '@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol';
 import '@uniswap/v3-periphery/contracts/libraries/TransferHelper.sol';
 import '@uniswap/v3-periphery/contracts/interfaces/INonfungiblePositionManager.sol';
 import '@uniswap/v3-periphery/contracts/base/LiquidityManagement.sol';
-
+import "hardhat/console.sol"
 contract LiquidityPool is IERC721Receiver {
     address public constant DAI = 0x6B175474E89094C44Da98b954EedeAC495271d0F;
     address public constant USDC = 0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48;
@@ -51,6 +51,10 @@ contract LiquidityPool is IERC721Receiver {
         // set the owner and data for position
         // operator is msg.sender
         deposits[tokenId] = Deposit({owner: owner, liquidity: liquidity, token0: token0, token1: token1});
+
+        console.log("token id: ", tokenId);
+        console.log("liquidity ", liquidity);
+
     }
 
         /// @notice Calls the mint function defined in periphery, mints the same amount of each token. For this example we are providing 1000 DAI and 1000 USDC in liquidity
