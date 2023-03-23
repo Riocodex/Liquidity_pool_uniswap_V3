@@ -21,7 +21,7 @@ describe("LiquidityPool", () => {
     accounts = await ethers.getSigners(1)
 
     //deploy contracts
-    const LiquidityPool = await ethers.getContractFactory("SwapExamples")
+    const LiquidityPool = await ethers.getContractFactory("LiquidityPool")
     liquidityPool = await LiquidityPool.deploy()
     await liquidityPool.deployed()
 
