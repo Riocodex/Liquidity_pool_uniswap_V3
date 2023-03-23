@@ -65,6 +65,12 @@ describe("LiquidityPool", () => {
       //transfering money from hardhat accounts to smartcontract address(liquiditypool)
       await dai.connect(accounts[0]).transfer(liquidityPool.address, daiAmount)
       await usdc.connect(accounts[0]).transfer(liquidityPool.address, usdcAmount)
+
+      await liquidityExamples.mintNewPosition()
+
+      console.log("Dai balance after adding liquidity",await dai.balanceOf(accounts[0].address))
+      console.log("USDC balance after adding liquidity",await usdc.balanceOf(accounts[0].address))
+
     })  
 
 
