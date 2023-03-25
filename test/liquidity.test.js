@@ -80,7 +80,9 @@ describe("LiquidityPool", () => {
 
     
     it("collects all fees", async() =>{
-      
+      const tokenId = await liquidityPool.tokenId()
+      console.log(`token id: ${tokenId}`)
 
+      await liquidityPool.collectAllFees()
     })  
 })
