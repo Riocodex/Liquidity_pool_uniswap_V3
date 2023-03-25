@@ -121,7 +121,7 @@ contract LiquidityPool is IERC721Receiver {
     /// @param tokenId The id of the erc721 token
     /// @return amount0 The amount of fees collected in token0
     /// @return amount1 The amount of fees collected in token1
-    function collectAllFees(uint256 tokenId) external returns (uint256 amount0, uint256 amount1) {
+    function collectAllFees() external returns (uint256 amount0, uint256 amount1) {
         // Caller must own the ERC721 position
         // Call to safeTransfer will trigger `onERC721Received` which must return the selector else transfer will fail
         nonfungiblePositionManager.safeTransferFrom(msg.sender, address(this), tokenId);
