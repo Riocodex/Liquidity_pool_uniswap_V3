@@ -78,5 +78,9 @@ describe("LiquidityPool", () => {
 
     })  
 
+    
+    it("collects all fees", async() =>{
+      
 
+    })  
 })
