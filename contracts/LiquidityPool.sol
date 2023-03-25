@@ -28,7 +28,7 @@ contract LiquidityPool is IERC721Receiver {
     /// @dev deposits[tokenId] => Deposit
     mapping(uint256 => Deposit) public deposits;
 
-   
+    uint public tokenId;
 
     // Implementing `onERC721Received` so this contract can receive custody of erc721 tokens
     function onERC721Received(
@@ -44,15 +44,16 @@ contract LiquidityPool is IERC721Receiver {
         return this.onERC721Received.selector;
     }
 
-    function _createDeposit(address owner, uint256 tokenId) internal {
+    function _createDeposit(address owner, uint256 _tokenId) internal {
         (, , address token0, address token1, , , , uint128 liquidity, , , , ) =
-            nonfungiblePositionManager.positions(tokenId);
+            nonfungiblePositionManager.positions(_tokenId);
 
         // set the owner and data for position
         // operator is msg.sender
-        deposits[tokenId] = Deposit({owner: owner, liquidity: liquidity, token0: token0, token1: token1});
+        deposits[_tokenId] = Deposit({owner: owner, liquidity: liquidity, token0: token0, token1: token1});
+        tokenId = _tokenId;
 
-        console.log("token id: ", tokenId);
+        console.log("token id: ", _tokenId);
         console.log("liquidity ", liquidity);
 
     }
