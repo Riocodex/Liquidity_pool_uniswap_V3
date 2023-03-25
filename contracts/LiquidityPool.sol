@@ -122,12 +122,8 @@ contract LiquidityPool is IERC721Receiver {
     /// @return amount0 The amount of fees collected in token0
     /// @return amount1 The amount of fees collected in token1
     function collectAllFees() external returns (uint256 amount0, uint256 amount1) {
-        // Caller must own the ERC721 position
-        // Call to safeTransfer will trigger `onERC721Received` which must return the selector else transfer will fail
-        nonfungiblePositionManager.safeTransferFrom(msg.sender, address(this), tokenId);
-
-        // set amount0Max and amount1Max to uint256.max to collect all fees
-        // alternatively can set recipient to msg.sender and avoid another transaction in `sendToOwner`
+   
+        
         INonfungiblePositionManager.CollectParams memory params =
             INonfungiblePositionManager.CollectParams({
                 tokenId: tokenId,
