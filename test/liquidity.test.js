@@ -2,12 +2,12 @@ const { expect } = require("chai")
 const { ethers } = require("hardhat")
 
 //contract addresses for swap
-const DAI ="0x6B175474E89094C44Da98b954EedeAC495271d0F";
-const USDC ="0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48";
+const DAI = "0x6B175474E89094C44Da98b954EedeAC495271d0F"
+const USDC = "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
 
 //accounts with tokens
 const DAI_WHALE = "0xF977814e90dA44bFA03b6295A0616a897441aceC"
-const USDC_WHALE = "0xF977814e90dA44bFA03b6295A0616a897441aceC"
+const USDC_WHALE = "0x28C6c06298d514Db089934071355E5743bf21d60"
 
 
 describe("LiquidityPool", () => {
